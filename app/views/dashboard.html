@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row center"><h1>Dashboard</h1></div>
+
+	<div class="row align-right add-product-button">
+		<button type="button" class="btn btn-info active" ng-click="open()">
+			<span class="glyphicon glyphicon-plus">
+		</span> Add Product</button>	
+	</div>
+
+	<table class="table table-bordered table-css">
+	    <thead>
+	        <tr>
+	            <th>Name</th>
+	            <th>Quantity</th>
+	            <th>Rate</th>
+	            <th>Action</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr ng-repeat="product in products track by $index">
+	            <td>{{ product.name }}</a></td>
+	            <td>{{ product.quantity }}</td>
+	            <td>{{ product.rate | currency }}</td>
+	            <td>
+	                <a href="javascript:void(0)" ng-click="editProduct(product.id)">edit</a> | <a href="javascript:void(0)" ng-click="deleteProduct(product.id)">delete</a>
+	            </td>
+	        </tr>
+	        
+	    </tbody>
+	</table>
+</div>

@@ -1,0 +1,50 @@
+<form name="form" ng-submit="save(form.$valid)" novalidate>
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add Product</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    	<div class="row">
+    		<div class="col-md-12">
+    			<div class="col-md-3">
+    				<label>Name</label>
+    			</div>
+    			<div class="col-md-9">
+    				<input type="text" class="form-group custom-width" ng-pattern="onlyChars" name="name" ng-model="productObj.name" required/>
+    				<div class="" ng-messages="form.name.$error" ng-if="form.name.$error && submitted">
+                        <p ng-message="required" class="val-error">Name is required</p>
+                        <p ng-message="pattern" class="val-error">Only characters allowed</p>
+                    </div>
+    			</div>
+    		</div>
+    		<div class="col-md-12">
+    			<div class="col-md-3">
+    				<label>Quantity</label>
+    			</div>
+    			<div class="col-md-9">
+    				<input type="text" class="form-group custom-width" name="quantity" ng-pattern="onlyNumbers" ng-model="productObj.quantity" required/>
+    				<div class="" ng-messages="form.quantity.$error" ng-if="form.quantity.$error && submitted">
+                        <p ng-message="required" class="val-error">Quantity is required</p>
+                        <p ng-message="pattern" class="val-error">Only numbers allowed</p>
+                    </div>
+    			</div>
+    		</div>
+    		<div class="col-md-12">
+    			<div class="col-md-3">
+    				<label>Price</label>
+    			</div>
+    			<div class="col-md-9">
+    				<input type="text" class="form-group custom-width" name="rate" ng-pattern="onlyNumbers" ng-model="productObj.rate" required/>
+    				<div class="" ng-messages="form.rate.$error" ng-if="form.rate.$error && submitted">
+                        <p ng-message="required" class="val-error">Rate required</p>
+                        <p ng-message="pattern" class="val-error">Only numbers allowed</p>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+	
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="submit" ng-click="submitted = true">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+</form>

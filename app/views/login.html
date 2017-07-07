@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="well login-well">
+		<h3>Login</h3>
+		<form id="loginform" class="form-validation" ng-submit="login(userForm.$valid)" name="userForm" novalidate autocomplete="off">
+
+			<div class="center">
+				<input type="email" ng-model="user.email" class="form-group custom-width-login" id="exampleInputEmail1" placeholder="Email" name="name" required>
+				<div ng-messages="userForm.name.$error" ng-if="userForm.name.$error && submitted">
+                    <p ng-message="required" class="val-error">Name is required</p>
+                    <p ng-message="email" class="val-error">Email is invalid</p>
+                </div>
+			</div>
+			<div class="center"> 
+				<input type="password" ng-model="user.password" class="form-group custom-width-login" id="exampleInputEmail1" placeholder="Password" name="password" ng-pattern="passPattern" required>
+
+
+				<div ng-messages="userForm.password.$error" ng-if="userForm.password.$error && submitted">
+                    <p ng-message="required" class="val-error">Password is required</p>
+                    <p ng-message="pattern" class="val-error">Password is invalid. Should contain atleast one uppercase alphabet and no space allowed.</p>
+                </div>
+			</div>
+			<div class="center" ng-show="wrongCredential"><p class="val-error">Username/password is wrong</p></div>
+			<div class="align-right padding-left">
+				<button class="btn btn-primary" type="submit" ng-click="submitted = true">Login</button>
+			</div>
+		</form>
+	</div>
+</div>
